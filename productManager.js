@@ -42,7 +42,7 @@ class ProductManager {
   async deleteProduct(id) {
     let resultado = await fs.promises.readFile(this.#path, 'utf-8')
     let products = JSON.parse(resultado)
-    let item = products.find((product) => product.id === id)
+    let item = callback.findProduct(id, products)
     if (item) {
       products = products.filter((product) => product.id !== id)
       if(!(callback.findProduct(id, products))){

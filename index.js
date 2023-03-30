@@ -1,6 +1,8 @@
 const ProductManager = require('./productManager.js')
 const path = './products.json'
 
+
+
 //Se creará una instancia de la clase “ProductManager”
 const productManager = new ProductManager(path)
 //Se llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío []
