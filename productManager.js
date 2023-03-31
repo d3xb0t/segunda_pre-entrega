@@ -75,7 +75,7 @@ class ProductManager {
 
   async getProducts() {
     let resultado = await fs.promises.readFile(this.#path, 'utf-8')
-    console.log(JSON.parse(resultado))
+    return JSON.parse(resultado)
   }
 
   async getProductByid(id) {
