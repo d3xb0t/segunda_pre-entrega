@@ -1,8 +1,8 @@
-const ProductManager = require('./productManager.js')
 const path = './products.json'
-const express = require('express')
+const ProductManager = require('./productManager.js')
 const productManager = new ProductManager('./products.json')
 
+const express = require('express')
 const app = express()
 app.use(express.urlencoded({extended: true}))
 
@@ -11,11 +11,7 @@ app.get('/products', async (requests, response) => {
     let respuesta = await productManager.getProducts()
     let { limit } = requests.query
     if(limit){
-        let array = []
-        for(i= 0; i < limit; i++){
-            array.push(respuesta[i])
-        }
-        response.send(array)
+        response.send(respuesta.slice(0, limit))
     } else {
         response.send(respuesta)
     }
