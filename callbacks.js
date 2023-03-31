@@ -1,5 +1,6 @@
 let findProduct = function (id, products){
-    return products.find((product) => product.id === id)
+  console.log(id, products)
+    return products.find((product) => product.id == id)
   }
 
 let verifyUniqueness = function (code, products) {

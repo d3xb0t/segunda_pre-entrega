@@ -1,4 +1,5 @@
 const path = './products.json'
+const callback = require('./callbacks')
 const ProductManager = require('./productManager.js')
 const productManager = new ProductManager('./products.json')
 
@@ -16,7 +17,7 @@ app.get('/products', async (requests, response) => {
 app.get('/products/:pid', async (requests, response) => {
     let respuesta = await productManager.getProducts()
     let { pid } = requests.params
-    let item = respuesta.find((producto) => producto.id == pid)
+    let item = callback.findProduct(pid, respuesta)
     if(item !== undefined){
         response.send(item)
     } else {
