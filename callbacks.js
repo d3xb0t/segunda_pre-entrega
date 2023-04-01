@@ -1,5 +1,4 @@
 let findProduct = function (id, products){
-  console.log(id, products)
     return products.find((product) => product.id == id)
   }
 
