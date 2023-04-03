@@ -1,4 +1,1 @@
-Adelanto tercer desafio.
-Uso de express con metodo GET.
-
-Refactorizando....
+Se entrega tercer desafio para revision por parte del tutor.
