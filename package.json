@@ -1,7 +1,7 @@
 {
   "name": "backend_segundo-desafio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Se entrega tercer desafio para revision por parte del tutor.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
