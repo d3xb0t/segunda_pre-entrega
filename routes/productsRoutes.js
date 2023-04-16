@@ -22,4 +22,10 @@ router.get('/:pid', async (requests, response) => {
     }
 })
 
+router.post('/', async (requests, response) => {
+    let producto = requests.body
+    let respuesta = await productManager.addProduct(producto)
+    response.send(respuesta)
+})
+
 module.exports = router

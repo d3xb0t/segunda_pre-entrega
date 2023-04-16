@@ -1,17 +1,1 @@
-[ {"id": 1, "producto": "Mario Kart", "precio": 50, "descripcion": "Video juego Nintendo Switch", "categoria": "Aventura, familiar", "oferta": false, "img": "assets/images/mk.png",  "cantidad": 0 }, 
-{"id": 2, "producto": "Halo", "precio": 35, "descripcion": "Video juego Xbox/343 Industries", "categoria": "Accion", "oferta": true, "img": "assets/images/h.png",  "cantidad": 1 },
-{"id": 3, "producto": "God of War", "precio": 32, "descripcion": "Video juego Play Station 5", "categoria": "Accion", "oferta": true, "img": "assets/images/gow.png",  "cantidad": 4 },
-{"id": 4, "producto": "Bayoneta 3", "precio": 49, "descripcion": "Video juego Nintendo Switch/Platinum Games", "categoria": "Accion, aventura", "oferta": false, "img": "assets/images/b3.png",  "cantidad": 3 },
-{"id": 5, "producto": "Elden Ring", "precio": 32, "descripcion": "Video juego xboxSx/s, play station", "categoria": "Aventura, open world", "oferta": false, "img": "assets/images/er.png",  "cantidad": 7 },
-{"id": 6, "producto": "Stray", "precio": 78, "descripcion": "Video juego play station", "categoria": "Aventura", "oferta": false, "img": "assets/images/s.png",  "cantidad": 3 },
-{"id": 7, "producto": "Sifu", "precio": 77, "descripcion": "Video juego play station", "categoria": "Accion", "oferta": false, "img": "assets/images/sifu.png",  "cantidad": 2 },
-{"id": 8, "producto": "Callisto Protocol", "precio": 80, "descripcion": "Video juego xboxSx/s, play station", "categoria": "Survival horror", "oferta": false, "img": "assets/images/cp.png",  "cantidad": 1 },
-{"id": 9, "producto": "The Last Of Us 2", "precio": 10, "descripcion": "Video juego play station", "categoria": "Aventura", "oferta": true, "img": "assets/images/tlous2.png",  "cantidad": 2 },
-{"id": 10, "producto": "The Last Of Us", "precio": 4, "descripcion": "Video juego play station", "categoria": "Aventura", "oferta": false, "img": "assets/images/tlous.png",  "cantidad": 8 },
-{"id": 11, "producto": "Ghost Of Shushima", "precio": 20, "descripcion": "Video juego play station", "categoria": "Aventura", "oferta": true, "img": "assets/images/gos.png",  "cantidad": 4 },
-{"id": 12, "producto": "Gears Of Wars", "precio": 25, "descripcion": "Video juego xboxSx/s", "categoria": "Accion", "oferta": true, "img": "assets/images/gows.png",  "cantidad": 6 },
-{"id": 13, "producto": "Gears Of Wars II", "precio": 31, "descripcion": "Video juego xboxSx/s", "categoria": "Accion", "oferta": false, "img": "assets/images/gows2.png",  "cantidad": 1 },
-{"id": 14, "producto": "Gears Of Wars III", "precio": 30, "descripcion": "Video juego xboxSx/s", "categoria": "Accion", "oferta": true, "img": "assets/images/gows3.png",  "cantidad": 5 },
-{"id": 15, "producto": "Sonic Frontiers", "precio": 40, "descripcion": "Video juego xboxSx/s, play station", "categoria": "Aventura", "oferta": false, "img": "assets/images/sf.png",  "cantidad": 2},
-{"id": 16, "producto": "Doom", "precio": 60, "descripcion": "Video juego xboxSx/s", "categoria": "Aventura, Accion", "oferta": false, "img": "assets/images/doom.png",  "cantidad": 3 }
-]
+[]

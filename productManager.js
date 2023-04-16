@@ -12,7 +12,8 @@ class ProductManager {
   }
 
   async addProduct(producto) {
-    const array = ['title', 'description', 'price', 'thumbnail', 'code', 'stock']
+    console.log(producto)
+    const array = ['title', 'description', 'price', 'code', 'stock', 'category', 'status']
     if(callback.verifyObjectParameters(array, producto)){
       console.log("Los parametros deben estar completos")
     }else{
@@ -25,9 +26,10 @@ class ProductManager {
             producto.title,
             producto.description,
             producto.price,
-            producto.thumbnail,
+            producto.thumbnails,
             producto.code,
-            producto.stock
+            producto.stock,
+            producto.category
           );
           products.push(item);
           await fs.promises.writeFile(this.#path, JSON.stringify(products))
