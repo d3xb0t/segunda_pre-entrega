@@ -21,7 +21,7 @@ class ProductManager {
         if (!callback.verifyUniqueness(producto.code, products)) {
           console.log(this.id)
           const item = new Product(
-            md5(producto.description),
+            md5(producto.title),
             producto.title,
             producto.description,
             producto.price,

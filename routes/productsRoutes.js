@@ -28,4 +28,10 @@ router.post('/', async (requests, response) => {
     response.send(respuesta)
 })
 
+router.delete('/:pid', async (requests, response) => {
+    let  { pid } = requests.params
+    let respuesta = await productManager.deleteProduct(pid)
+    response.send(respuesta)
+})
+
 module.exports = router

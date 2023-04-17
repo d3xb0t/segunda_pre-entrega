@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "id": "3358c62a3526dd921b74016e17ff034c",
+        "title": "Quemando Cromo",
+        "description": "Libro de ciencia ficcion, escrito por William Gibson",
+        "price": 49,
+        "thumbnail": [
+            "http://dummysite.com/quemandocromo.jpg",
+            "http://dummysite2.com/johnnynemonic.jpg"
+        ],
+        "code": "2",
+        "stock": 20
+    }
+]
