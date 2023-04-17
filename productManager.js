@@ -1,10 +1,9 @@
 const fs = require('fs')
 const callback = require('./callbacks')
 const Product = require('./product.js')
-
+const md5 = require('md5')
 
 class ProductManager {
-  id = 0;
   #path = './products.json'
 					
   constructor(path) {
@@ -20,9 +19,9 @@ class ProductManager {
         let resultado = await fs.promises.readFile(this.#path, 'utf-8')
         let products = JSON.parse(resultado)
         if (!callback.verifyUniqueness(producto.code, products)) {
-          this.id++;
+          console.log(this.id)
           const item = new Product(
-            this.id,
+            md5(producto.description),
             producto.title,
             producto.description,
             producto.price,
@@ -33,6 +32,7 @@ class ProductManager {
           );
           products.push(item);
           await fs.promises.writeFile(this.#path, JSON.stringify(products))
+          
         } else {
           console.error(
             `El producto con código ${producto.code} ya esta en la lista`
