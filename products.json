@@ -15,12 +15,12 @@
         "id": "9b237584654fe1ef24a81c77510b4492",
         "title": "Dune",
         "description": "Libro de ciencia ficcion, escrito por Frank Herbert",
-        "price": 100,
+        "price": 10,
         "thumbnail": [
             "http://dummysite.com/dune.jpg",
             "http://dummysite2.com/frankherbert.jpg"
         ],
         "code": "3",
-        "stock": 18
+        "stock": 1
     }
 ]
