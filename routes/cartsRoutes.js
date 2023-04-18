@@ -46,6 +46,25 @@ router.post('/', async(requests, response) => {
     response.send(respuesta)         
 })
 
+router.post('/:cid/product/:pid', async(requests, response) => {
+    let { cid , pid } = requests.params
+    let carritos = await cartManager.getCarts()
+    let carrito = carritos.find(carrito => carrito.id == cid)
+    if(carrito){
+        let producto = (carrito.products).find(producto => producto.id == pid)
+        if(producto){
+            producto.quantity ++
+
+        }else{
+            carrito.products.push({"id": pid, "quantity": 1})
+        }
+    }else{
+        response.send("Not Found")
+    }
+    console.log(carritos[1])
+    response.send(carritos[1])
+})
+
 router.get('/', async(requests, response) => {
     let respuesta = await cartManager.getCarts()
     response.send(respuesta)
@@ -61,7 +80,8 @@ router.get('/:cid', async (requests, response) => {
     }else{
         console.log("Not Found");
         response.send("Not Found")
-    }    
+    }
+
 })
 
 module.exports = router
