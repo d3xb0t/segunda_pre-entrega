@@ -36,6 +36,10 @@ class CartManager {
         let resultado = await fs.promises.readFile(this.#path, 'utf-8')
         return JSON.parse(resultado)
       }
+
+    async writeCarts(objeto) {
+        await fs.promises.writeFile(this.#path, JSON.stringify(objeto))
+    } 
 }
 
 const cartManager = new CartManager('./carritos.json')
@@ -61,8 +65,8 @@ router.post('/:cid/product/:pid', async(requests, response) => {
     }else{
         response.send("Not Found")
     }
-    console.log(carritos[1])
-    response.send(carritos[1])
+    await cartManager.writeCarts(carritos)
+    response.send("Done")
 })
 
 router.get('/', async(requests, response) => {
