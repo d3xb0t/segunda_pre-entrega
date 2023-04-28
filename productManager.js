@@ -25,10 +25,11 @@ class ProductManager {
             producto.title,
             producto.description,
             producto.price,
-            producto.thumbnails,
+            producto.thumbnail,
             producto.code,
             producto.stock,
-            producto.category
+            producto.category,
+            producto.status
           );
           products.push(item);
           await fs.promises.writeFile(this.#path, JSON.stringify(products))

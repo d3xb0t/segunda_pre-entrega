@@ -6,8 +6,10 @@ class Product {
     thumbnail = null;
     code = null;
     stock = null;
+    category = null;
+    status = true;
   
-    constructor(id, title, description, price, thumbnail, code, stock) {
+    constructor(id, title, description, price, thumbnail, code, stock, category, status) {
       this.id = id ? id : this.id;
       this.title = title ? title : this.title;
       this.description = description ? description : this.description;
@@ -15,6 +17,8 @@ class Product {
       this.thumbnail = thumbnail ? thumbnail : this.thumbnail;
       this.code = code ? code : this.code;
       this.stock = stock ? stock : this.stock;
+      this.category = category ? category : this.category;
+      this.status = status ? status : this.status;
     }
   
     toString() {
