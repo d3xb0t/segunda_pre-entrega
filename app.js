@@ -17,11 +17,13 @@ app.use(express.static('public'))
 const productRouter = require('./routes/productsRoutes')
 const cartRouter = require('./routes/cartsRoutes')
 const homeRouter = require('./routes/homeRoutes')
+const realTimeProducts = require('./routes/realTimeProductsRoutes')
 const cors = require('cors')
 
 
 app.use(cors())
 
+app.use('/realtimeproducts', realTimeProducts)
 app.use('/', homeRouter)
 app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)

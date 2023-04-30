@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ff0534;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: dimgrey;
+    font-size: 0.8em;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+#input{
+    background-color: #ff0534;
+    width: 400px;
+    height: 100vh;
+}
+
+#output{
+    background-color: #ff0534;
+    width: 75%;
+    height: 100vh;
+}
+
+.contenedor{
+    background-color: white;
+    width: 340px;
+    min-height: 200px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 3px;
+}
+
+.contenedor ul{
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-left: 0px;
+    list-style: none;
+}
+
+.contenedor ul li{
+    margin-left: 5px;
+}
+
+.display{
+    background-color: white;
+    margin: 50px auto;
+    width: 90%;
+    height: 100vh;
+}
+
+.color_green{
+    background-color: white;
+    position: absolute;
+    top: 70px;
+    border-radius: 3px;
+}
+
+.color_blue{
+    background-color: white;
+    position: absolute;
+    top: 70px;
+    border-radius: 3px;
+}
+
+.btn_top{
+    border-radius: 3px;
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+
+.btn{
+    border-radius: 3px;
+    display: inline-block;
+    padding: 20px 15px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+
+.btn-green{
+    color: white;
+    background-color: #006465;
+}
+
+.btn-green:hover{
+    background-color: #459a96;
+}
+
+.btn-green:active{
+    background-color: #466067;
+}
+
+.position{
+    position: absolute;
+    top: 20px;
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+.input_data{
+    width: 100vw;
+}
+
+form{
+    background-color: white;
+    border-radius: 3px;
+    width: 340px;
+    margin: 5px auto;
+    padding: 15px;
+}
+
+input{
+    outline: none;
+    border: 0;
+    width: 310px;
+}
+
+.field{
+    border: solid 1px #ccc;
+    padding: 13px;
+}
+
+.field:focus{
+    border-color: #006465;
+}
+
+p{
+    padding: 15px 0 15px 0;
+}
