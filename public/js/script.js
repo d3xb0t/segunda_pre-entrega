@@ -1,6 +1,7 @@
 const formPostProduct = document.querySelector('#formPostProduct')
+const formDeleteProduct = document.querySelector( '#formDeleteProduct')
 
-formPostProduct.onsubmit = ( e ) => {
+formPostProduct.onsubmit = (e) => {
     e.preventDefault()
 
     const producto = {
@@ -13,9 +14,19 @@ formPostProduct.onsubmit = ( e ) => {
         category: formPostProduct[6].value,
         status: formPostProduct[7].value
     }
-
     console.log(producto)
 }
+
+formDeleteProduct.onsubmit = (e) => {
+    e.preventDefault()
+
+    const idProducto = {
+        id: formDeleteProduct[0].value
+    }
+
+    console.log(idProducto)
+}
+
 
 
 
