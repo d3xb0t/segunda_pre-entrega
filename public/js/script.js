@@ -1,5 +1,7 @@
+const socket = io()
 const formPostProduct = document.querySelector('#formPostProduct')
 const formDeleteProduct = document.querySelector( '#formDeleteProduct')
+const display = document.querySelector('#display')
 
 formPostProduct.onsubmit = (e) => {
     e.preventDefault()
@@ -15,6 +17,8 @@ formPostProduct.onsubmit = (e) => {
         status: formPostProduct[7].value
     }
     console.log(producto)
+    socket.emit('message1', producto)
+
 }
 
 formDeleteProduct.onsubmit = (e) => {
@@ -25,9 +29,12 @@ formDeleteProduct.onsubmit = (e) => {
     }
 
     console.log(idProducto)
+    socket.emit('message2', idProducto)
 }
 
-
+socket.on('log', data => {
+    display.innerHTML+=JSON.stringify(data)
+})
 
 
 
