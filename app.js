@@ -1,3 +1,4 @@
+let productos = require('./products.json')
 const express = require('express')
 const { Server } = require('socket.io')
 const app = express()
@@ -34,11 +35,15 @@ const io = new Server(server)
 
 io.on('connection', socket => {
                                 console.log('Connected')
+                                socket.on('startApp', data => {
+                                    console.log(data.date)
+                                    io.emit('log', productos)    
+                                })
                                 socket.on('message1', data => {
-                                    io.emit('log', data)
+                                    io.emit('log', productos)
                                 })
                                 socket.on('message2', data => {
-                                    io.emit('log', data)
+                                    io.emit('log', productos)
                                 })
 
 })
