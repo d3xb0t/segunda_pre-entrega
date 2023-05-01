@@ -16,7 +16,9 @@ formPostProduct.onsubmit = (e) => {
         category: formPostProduct[6].value,
         status: formPostProduct[7].value
     }
-    console.log(producto)
+
+    addProduct(producto)
+    //console.log(producto)
     socket.emit('message1', producto)
 
 }
@@ -27,8 +29,9 @@ formDeleteProduct.onsubmit = (e) => {
     const idProducto = {
         id: formDeleteProduct[0].value
     }
+    //console.log(idProducto)
 
-    console.log(idProducto)
+    deleteProduct(idProducto)
     socket.emit('message2', idProducto)
 }
 
@@ -65,6 +68,24 @@ const fowardData = (data) => {
 
 }
 
+const addProduct = async (producto) => {
+    await fetch('http://localhost:8080/api/products', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify(producto)
+    })
+    .then(response => console.log(response.json()))
+    .catch(err => console.log(err))
+}
+
+const deleteProduct = async ({id}) => {
+    console.log(id)
+    await fetch(`http://localhost:8080/api/products/${id}`, {method: 'DELETE'})
+    .then(response => console.log(response.json()))
+    .catch(err => console.log(err))
+}
 
 // logica de control del frontend
 const boton_top = document.querySelector('#boton_top')
