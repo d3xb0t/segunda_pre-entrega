@@ -59,8 +59,6 @@ boton_bottom.onclick = () => {
 }
 // fin
 
-start()
-
 getProducts()
 
 
