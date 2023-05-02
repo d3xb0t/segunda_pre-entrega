@@ -25,27 +25,25 @@ const cors = require('cors')
 
 app.use(cors())
 
+app.use((requests, response, next) => {
+    if(requests.body && requests.body._method){
+        requests.method = requests.body._method
+        delete requests.body._method
+    }
+    next()
+})
+
 app.use('/realtimeproducts', realTimeProducts)
 app.use('/', homeRouter)
 app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)
 
-const server = app.listen(8080, () => console.log("Listening in port 8080"))
+const server = app.listen(8080, () => {console.log("Listen in port 8080")})
 const io = new Server(server)
 
 io.on('connection', socket => {
-                                console.log('Connected')
-                                socket.on('message1', (data) => {
-                                    console.log(data)
-                                    io.emit('log', productos)
-                                })
-                                socket.on('message2', (data) => {
-                                    console.log(data)
-                                    io.emit('log', productos)
-                                })
-                                socket.on('startApp', (data) => {
-                                    console.log(data)
-                                    io.emit('log', productos)    
-                                })
-
+    console.log('Connected')
+    socket.on('message', data => {
+        io.emit('log', data)
+    })
 })

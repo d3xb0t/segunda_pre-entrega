@@ -1,50 +1,23 @@
 const socket = io()
-const formPostProduct = document.querySelector('#formPostProduct')
-const formDeleteProduct = document.querySelector( '#formDeleteProduct')
 const display = document.querySelector('#display')
+const string = "string"
 
-formPostProduct.onsubmit = (e) => {
-    e.preventDefault()
+socket.emit('message', string)
+socket.on('log', data => {
+    console.log(data)
+})
 
-    const producto = {
-        title: formPostProduct[0].value,
-        description: formPostProduct[1].value,
-        price: formPostProduct[2].value,
-        thumbnail: formPostProduct[3].value,
-        code: formPostProduct[4].value,
-        stock: formPostProduct[5].value,
-        category: formPostProduct[6].value,
-        status: formPostProduct[7].value
-    }
 
-    loadProduct(producto)
-
-    console.log(producto)
-    socket.emit('message1', producto)
-
-}
-
-formDeleteProduct.onsubmit = (e) => {
-    e.preventDefault()
-
-    const idProducto = {
-        id: formDeleteProduct[0].value
-    }
-    console.log(idProducto)
-    deleteProduct(idProducto)
-    socket.emit('message2', idProducto)
-}
-
-const start = () => {
-    const startApp = {
-        date: Date.now()
-    }
-    socket.emit('startApp', startApp)
+const getProducts = async () => {
+    fetch('http://localhost:8080/api/products')
+    .then(response => response.json())
+    .then(data => renderPage(data))
+    .catch(error => console.log(error))
 }
 
 
+function renderPage(data){
 
-const fowardData = (data) => {
     display.innerHTML = " "
     let miTabla = '<table> <thead class="shadow"><tr><th scope="col">ID</th><th scope="col">TITLE</th><th scope="col">STOCK</th><th scope="col">PRICE</th><th scope="col">DESCRIPTION</th><th scope="col">STATUS</th></tr></thead>'
         for(let i= 0, { length }= data; i<length; i++){
@@ -63,29 +36,7 @@ const fowardData = (data) => {
         tabla.innerHTML = miTabla
         display.appendChild(tabla)
 
-}
-
-
-async function loadProduct(producto){
-    await fetch('http://localhost:8080/api/products', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify(producto)
-    }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response))
-    return
-}
-
-async function deleteProduct({id}){
-    await fetch(`http://localhost:8080/api/products/${id}`, {
-        method: 'DELETE'
-    }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response))
-    return
+        return
 }
 
 // logica de control del frontend
@@ -110,7 +61,6 @@ boton_bottom.onclick = () => {
 
 start()
 
-socket.on('log', data => {
-    fowardData(data)
-})
+getProducts()
+
 
