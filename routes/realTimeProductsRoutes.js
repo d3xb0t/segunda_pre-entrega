@@ -1,3 +1,5 @@
+const products = require('../products.json')
+
 const express = require('express')
 const router = express.Router()
 
@@ -8,5 +10,8 @@ router.get('/', (requests, response) => {
     
 })
 
+router.post('/', () => {
+    response.render('realTimeProducts', products)
+})
 
 module.exports = router
