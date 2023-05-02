@@ -1,8 +1,5 @@
-## Se entrega primera pre-entrega para revision por parte del tutor.
+###Se entrega para revision del Desafio WebSockets. Se agrega y elimina mediante formulario el producto requerido.
+###Sin terminar ya que no renderiza automaticamente la nueva lista ( se debe dar de nuevo click en los botones de enviar )
 
-### iniciar servidor: nodemon app.js
-
-### Se usa md5 para generar un hash. En "products" se usa el nombre del producto y en "carts" se usa la fecha actual.
-### Mas adelante se caracterizara al usuario y al carrito para generar el hash md5
-
-![put](./put.png)
+![put](./realtimeHandlebars_eliminar.png)
+![put](./realtimeProducts_agregar.png)
