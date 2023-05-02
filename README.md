@@ -1,5 +1,5 @@
 ### Se entrega para revision del Desafio WebSockets. Se agrega y elimina mediante formulario el producto requerido.
-### Sin terminar ya que no renderiza automaticamente la nueva lista ( se debe dar de nuevo click en los botones de enviar )
+### home.handlebars actualiza de manera remota al hacer cambios con realtimeProducts.handlebars
 
 ![put](./realtimeProducts_agregar.png)
 ![put](./realtimeHandlebars_eliminar.png)
