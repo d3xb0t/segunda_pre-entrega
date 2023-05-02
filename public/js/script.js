@@ -1,4 +1,11 @@
+const socket = io()
 const display = document.querySelector('#display')
+const string = "string"
+
+socket.emit('message', string)
+socket.on('log', data => {
+    console.log(data)
+})
 
 
 const getProducts = async () => {

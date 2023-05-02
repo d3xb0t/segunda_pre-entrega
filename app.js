@@ -1,4 +1,5 @@
 const express = require('express')
+const { Server } = require('socket.io')
 const app = express()
 const handlebars = require('express-handlebars')
 const path = require('path')
@@ -36,6 +37,12 @@ app.use('/', homeRouter)
 app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)
 
-app.listen(8080, () => {
-    console.log("Listen in port 8080")
+const server = app.listen(8080, () => {console.log("Listen in port 8080")})
+const io = new Server(server)
+
+io.on('connection', socket => {
+    console.log('Connected')
+    socket.on('message', data => {
+        io.emit('log', data)
+    })
 })
