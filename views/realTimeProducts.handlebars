@@ -6,39 +6,37 @@
                 <li><div class="btn_top btn-green" id="boton_buttom">Eliminar</div></li>
             </ul>
             <div class="color_blue" id="buttom">
-                <form id="formDeleteProduct">
+                <form id="formDelete" action="http://localhost:8080/realtimeproducts" enctype="application/x-www-form-urlencoded" method="delete">
                     <p>ID</p>
                     <input class="field" type="text" name="id">
                     <p><input class="btn btn-green" type="submit" value="Eliminar Producto"></p>
                 </form>
             </div>
             <div class="color_green" id="top">
-                <form id="formPostProduct">
+                <form id="formAdd" action="http://localhost:8080/realtimeproducts" enctype="application/x-www-form-urlencoded" method="post">
                     <p>Title</p>
-                    <input class="field" type="text">
+                    <input class="field" type="text" name="title">
                     <p>Description</p>
-                    <input class="field" type="text">
+                    <input class="field" type="text" name="description">
                     <p>Price</p>
-                    <input class="field" type="text">
+                    <input class="field" type="text" name="price">
                     <p>Thumbnail</p>
-                    <input  class="field" type="text">
+                    <input  class="field" type="text" name="thumbnail">
                     <p>Code</p>
-                    <input  class="field" type="text">
+                    <input  class="field" type="text" name="code">
                     <p>Stock</p>
-                    <input  class="field" type="text">
+                    <input  class="field" type="text" name="stock">
                     <p>Category</p>
-                    <input  class="field" type="text">
+                    <input  class="field" type="text" name="category">
                     <p>Status</p>
-                    <input  class="field" type="text">
+                    <input  class="field" type="text" name="status">
                     <p><input class="btn btn-green" type="submit" value="Enviar Producto"></p>
                 </form>
             </div>
         </div>
     </section>
     <section id="output">
-        <div class="display">
-
-        </div>
+        <div id="display" class="display"></div>
     </section>
 </main>
 

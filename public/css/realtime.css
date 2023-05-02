@@ -145,3 +145,49 @@ input{
 p{
     padding: 15px 0 15px 0;
 }
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: none
+  }
+  
+  thead th:nth-child(1) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 14%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 7%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 7%;
+  }
+
+  thead th:nth-child(5) {
+    width: 30%;
+  }
+
+  thead th:nth-child(6) {
+    width: 10%;
+  }
+
+
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .shadow{
+    background-color: #459a96;
+  }
+
+  tr{
+    border: solid 1px  #ccc;
+  }
