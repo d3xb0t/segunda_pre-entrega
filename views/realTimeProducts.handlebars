@@ -6,9 +6,10 @@
                 <li><div class="btn_top btn-green" id="boton_buttom">Eliminar</div></li>
             </ul>
             <div class="color_blue" id="buttom">
-                <form id="formDelete" action="http://localhost:8080/realtimeproducts" enctype="application/x-www-form-urlencoded" method="delete">
+                <form id="formDelete" action="http://localhost:8080/realtimeproducts" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
                     <p>ID</p>
-                    <input class="field" type="text" name="id">
+                    <input class="field" type="text" name="id" id="id">
                     <p><input class="btn btn-green" type="submit" value="Eliminar Producto"></p>
                 </form>
             </div>

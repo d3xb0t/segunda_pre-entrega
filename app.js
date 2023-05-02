@@ -23,6 +23,14 @@ const cors = require('cors')
 
 app.use(cors())
 
+app.use((requests, response, next) => {
+    if(requests.body && requests.body._method){
+        requests.method = requests.body._method
+        delete requests.body._method
+    }
+    next()
+})
+
 app.use('/realtimeproducts', realTimeProducts)
 app.use('/', homeRouter)
 app.use('/api/products', productRouter)
