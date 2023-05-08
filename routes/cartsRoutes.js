@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const md5 = require('md5')
 const fs = require('fs')
-const CartManager = require('../cartManager.js')
+const CartManager = require('../dao/fileSystem/cartManager')
 
 const cartManager = new CartManager('./carritos.json')
 

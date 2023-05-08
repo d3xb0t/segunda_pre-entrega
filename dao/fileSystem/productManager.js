@@ -1,5 +1,5 @@
 const fs = require('fs')
-const callback = require('./callbacks')
+const callback = require('../../callbacks')
 const Product = require('./product.js')
 const md5 = require('md5')
 

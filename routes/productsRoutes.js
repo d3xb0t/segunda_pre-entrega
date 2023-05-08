@@ -1,6 +1,6 @@
 const path = '../products.json'
 const callback = require('../callbacks')
-const ProductManager = require('../productManager.js')
+const ProductManager = require('../dao/fileSystem/productManager.js')
 const productManager = new ProductManager('./products.json')
 const express = require('express')
 const router = express.Router()
