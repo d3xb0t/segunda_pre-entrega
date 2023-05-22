@@ -8,7 +8,6 @@ import express from "express"
 const productRouter = express.Router()
 
 productRouter.get('/', async (requests, response) => {
-    //let respuesta = await productManager.getProducts()
     try{
         let respuesta = await productModel.find()
         let { limit } = requests.query
@@ -16,10 +15,6 @@ productRouter.get('/', async (requests, response) => {
     } catch(error){
             console.log("Cannot get products with mongoose")
     }
-    /*
-    let { limit } = requests.query
-    limit?response.send(respuesta.slice(0, limit)):response.send(respuesta)
-    */
 })
 /*
 router.get('/:pid', async (requests, response) => {
