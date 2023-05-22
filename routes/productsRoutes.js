@@ -16,6 +16,21 @@ productRouter.get('/', async (requests, response) => {
             console.log("Cannot get products with mongoose")
     }
 })
+
+productRouter.post('/' , async (requests, response) => {
+    let {title, description, price, code, stock, category, status} = requests.body
+    let respuesta = await productModel.create(
+        {   
+            title, 
+            description, 
+            price, 
+            code, 
+            stock, 
+            category, 
+            status
+        })
+    response.send({status: 'Success', payload: respuesta})
+})
 /*
 router.get('/:pid', async (requests, response) => {
     let respuesta = await productManager.getProducts()
@@ -33,7 +48,9 @@ router.post('/', async (requests, response) => {
     let respuesta = await productManager.addProduct(producto)
     response.send(respuesta)
 })
+*/
 
+/*
 router.delete('/:pid', async (requests, response) => {
     let  { pid } = requests.params
     let respuesta = await productManager.deleteProduct(pid)
