@@ -1,16 +1,27 @@
-const path = '../products.json'
-const callback = require('../callbacks')
-const ProductManager = require('../dao/fileSystem/productManager.js')
-const productManager = new ProductManager('./products.json')
-const express = require('express')
-const router = express.Router()
+//const callback = require('../callbacks')
+import callback from '../callbacks.js'
+import productModel from '../dao/models/product.js'
+//const ProductManager = require('../dao/fileSystem/productManager.js')
+//const productManager = new ProductManager('./products.json')
+//const express = require('express')
+import express from "express"
+const productRouter = express.Router()
 
-router.get('/', async (requests, response) => {
-    let respuesta = await productManager.getProducts()
+productRouter.get('/', async (requests, response) => {
+    //let respuesta = await productManager.getProducts()
+    try{
+        let respuesta = await productModel.find()
+        let { limit } = requests.query
+        limit?response.send(respuesta.slice(0, limit)):response.send(respuesta)
+    } catch(error){
+            console.log("Cannot get products with mongoose")
+    }
+    /*
     let { limit } = requests.query
     limit?response.send(respuesta.slice(0, limit)):response.send(respuesta)
+    */
 })
-
+/*
 router.get('/:pid', async (requests, response) => {
     let respuesta = await productManager.getProducts()
     let { pid } = requests.params
@@ -41,5 +52,6 @@ router.put('/:pid', async (requests, response) => {
     let respuesta = await productManager.updateProduct(pid, modificador)
     response.send(respuesta)
 })
+*/
 
-module.exports = router
+export default productRouter

@@ -1,10 +1,12 @@
 //const productos = require('./products.json')
-const express = require('express')
+//const express = require('express')
+import express from "express"
+import mongoose from "mongoose"
 //const { Server } = require('socket.io')
 const app = express()
 //const handlebars = require('express-handlebars')
-const path = require('path')
-
+//const path = require('path')
+import path from "path"
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -17,8 +19,9 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 */
 
-const productRouter = require('./routes/productsRoutes')
-const cartRouter = require('./routes/cartsRoutes')
+//const productRouter = require('./routes/productsRoutes')
+import productRouter from "./routes/productsRoutes.js"
+//const cartRouter = require('./routes/cartsRoutes')
 /*
 const homeRouter = require('./routes/homeRoutes')
 const realTimeProducts = require('./routes/realTimeProductsRoutes')
@@ -36,10 +39,14 @@ app.use((requests, response, next) => {
 //app.use('/realtimeproducts', realTimeProducts)
 //app.use('/', homeRouter)
 app.use('/api/products', productRouter)
-app.use('/api/carts', cartRouter)
+//app.use('/api/carts', cartRouter)
 
 app.listen(8080, () => {console.log("Listening in port 8080")})
-
+try{
+    mongoose.connect('mongodb://127.0.0.1:27017/ecommerce')
+} catch(error) {
+        handleError((error) => console.log("Imposible conectar la aplicacion"))
+}
 /*
 const server = app.listen(8080, () => {console.log("Listen in port 8080")})
 const io = new Server(server)

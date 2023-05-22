@@ -16,8 +16,10 @@ let verifyObjectParameters = function (array, producto) {
   return flags.includes(false)
 }
 
-module.exports = {
+let callback= {
     findProduct,
     verifyUniqueness,
     verifyObjectParameters
 }
+
+export default callback
