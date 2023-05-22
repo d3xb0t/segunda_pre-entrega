@@ -1,15 +1,17 @@
 //const callback = require('../callbacks')
 import callback from '../callbacks.js'
-import productModel from '../dao/models/product.js'
+import ProductManager from '../dao/models/productManager.js'
+//import productModel from '../dao/models/product.js'
 //const ProductManager = require('../dao/fileSystem/productManager.js')
 //const productManager = new ProductManager('./products.json')
 //const express = require('express')
 import express from "express"
 const productRouter = express.Router()
+const productManager = new ProductManager()
 
 productRouter.get('/', async (requests, response) => {
     try{
-        let respuesta = await productModel.find()
+        let respuesta = await productManager.getProducts()
         let { limit } = requests.query
         limit?response.send(respuesta.slice(0, limit)):response.send(respuesta)
     } catch(error){
