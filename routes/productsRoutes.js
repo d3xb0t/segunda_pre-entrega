@@ -20,6 +20,10 @@ productRouter.get('/', async (requests, response) => {
 })
 
 productRouter.post('/' , async (requests, response) => {
+    let producto = requests.body
+    let respuesta = await productManager.addProduct(producto)
+    response.send(respuesta)
+    /*
     let {title, description, price, code, stock, category, status} = requests.body
     let respuesta = await productModel.create(
         {   
@@ -32,19 +36,10 @@ productRouter.post('/' , async (requests, response) => {
             status
         })
     response.send({status: 'Success', payload: respuesta})
-})
-/*
-router.get('/:pid', async (requests, response) => {
-    let respuesta = await productManager.getProducts()
-    let { pid } = requests.params
-    let item = callback.findProduct(pid, respuesta)
-    if(item !== undefined){
-        response.send(item)
-    } else {
-        response.send({'error': 'Not found'})
-    }
+    */
 })
 
+/*
 router.post('/', async (requests, response) => {
     let producto = requests.body
     let respuesta = await productManager.addProduct(producto)
