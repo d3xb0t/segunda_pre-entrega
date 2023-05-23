@@ -16,8 +16,12 @@ class CartManager {
         const { id, quantity } = producto
         let resultado = await cartModel.create(
             {
-                cart: [id,
-                quantity]
+                cart: [
+                    {
+                        id,
+                        quantity
+                    }
+                ]
             }
         )
         return resultado
