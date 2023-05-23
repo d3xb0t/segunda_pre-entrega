@@ -8,6 +8,7 @@ const CartManager = require('../dao/fileSystem/cartManager')
 
 import express from "express"
 import CartManager from "../dao/models/cartManager.js"
+import cartModel from "../dao/models/cart.js"
 const cartRouter = express.Router()
 const cartManager = new CartManager()
 
@@ -16,6 +17,20 @@ cartRouter.get('/', async(requests, response) => {
     let respuesta = await cartManager.getCarts()
     response.send({status: "Success", payload: respuesta})
 })
+
+
+
+cartRouter.get('/:cid', async (requests, response) => {
+    let {cid} = requests.params
+    try{
+        let respuesta = await cartModel.findById({_id: cid})
+        response.send({status: "Success", payload: respuesta})
+    } catch(error) {
+        console.log("Imposible conectarse a la base de datos o id inexistente")
+        response.send({status: "Impossible task", payload: error})
+    }
+})
+
 
 cartRouter.post('/', async(requests, response) => {
     let producto = requests.body
