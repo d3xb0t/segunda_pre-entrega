@@ -13,7 +13,14 @@ class CartManager {
       }
 
     async addCart(producto){
-        console.log(producto)
+        const { id, quantity } = producto
+        let resultado = await cartModel.create(
+            {
+                cart: [id,
+                quantity]
+            }
+        )
+        return resultado
     }
     
 }
