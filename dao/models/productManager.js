@@ -43,6 +43,13 @@ class ProductManager {
         return response
     }
 
+    async updateProduct(id, modificador) {
+        let {price} = modificador
+        console.log(id, price)
+        let response = await productModel.updateOne({_id: id}, {price: price})
+        return response
+    }
+
 }
 
 export default ProductManager

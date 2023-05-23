@@ -32,14 +32,14 @@ productRouter.delete('/:pid', async (requests, response) => {
     response.send({status: 'Success', payload: respuesta})
 })
 
-/*
-router.put('/:pid', async (requests, response) => {
+
+productRouter.put('/:pid', async (requests, response) => {
     let { pid } = requests.params
     let modificador = requests.body
     console.log(pid, modificador)
     let respuesta = await productManager.updateProduct(pid, modificador)
-    response.send(respuesta)
+    response.send({status: 'Success', payload: respuesta})
 })
-*/
+
 
 export default productRouter
