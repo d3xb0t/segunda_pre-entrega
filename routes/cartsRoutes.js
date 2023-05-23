@@ -38,6 +38,12 @@ cartRouter.post('/', async(requests, response) => {
     response.send({status: "Success", payload: respuesta})
 })
 
+
+cartRouter.post('/:cid/product/:pid', async(requests, response) => {
+    let { cid , pid } = requests.params
+    response.send({cid, pid})
+})
+
 /*
 
 cartRouter.post('/', async(requests, response) => {
