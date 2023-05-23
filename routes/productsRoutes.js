@@ -19,6 +19,12 @@ productRouter.get('/', async (requests, response) => {
     }
 })
 
+productRouter.get('/:pid', async (requests, response) => {
+    let {pid} = requests.params
+    let respuesta = await productManager.getProductByid(pid)
+    response.send({status: 'Success', payload: respuesta})
+})
+
 productRouter.post('/' , async (requests, response) => {
     let producto = requests.body
     let respuesta = await productManager.addProduct(producto)
@@ -40,6 +46,7 @@ productRouter.put('/:pid', async (requests, response) => {
     let respuesta = await productManager.updateProduct(pid, modificador)
     response.send({status: 'Success', payload: respuesta})
 })
+
 
 
 export default productRouter

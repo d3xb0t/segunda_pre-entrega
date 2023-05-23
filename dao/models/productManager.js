@@ -50,23 +50,11 @@ class ProductManager {
         return response
     }
 
+    async getProductByid(id) {
+        let response = await productModel.findById({_id: id})
+        return response
+      }
+
 }
 
 export default ProductManager
-
-
-/*
-
-let products = await productModel.find()
-        let item = callback.findProduct(id, products)
-        if (item) {
-        products = products.filter((product) => product.id !== id)
-        if(!(callback.findProduct(id, products))){
-            await fs.promises.writeFile(this.#path, JSON.stringify(products)) 
-            console.log(`the product with id ${id} has been removed`) 
-        }  
-        } else {
-            console.log("Not Found")
-        }
-
-*/
