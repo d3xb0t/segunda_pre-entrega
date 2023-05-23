@@ -26,13 +26,13 @@ productRouter.post('/' , async (requests, response) => {
 })
 
 
-/*
-router.delete('/:pid', async (requests, response) => {
+productRouter.delete('/:pid', async (requests, response) => {
     let  { pid } = requests.params
     let respuesta = await productManager.deleteProduct(pid)
-    response.send(respuesta)
+    response.send({status: 'Success', payload: respuesta})
 })
 
+/*
 router.put('/:pid', async (requests, response) => {
     let { pid } = requests.params
     let modificador = requests.body
