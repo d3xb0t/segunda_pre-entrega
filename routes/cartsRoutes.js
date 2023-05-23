@@ -1,18 +1,37 @@
+/*
 const express = require('express')
 const router = express.Router()
 const md5 = require('md5')
 const fs = require('fs')
 const CartManager = require('../dao/fileSystem/cartManager')
+*/
 
-const cartManager = new CartManager('./carritos.json')
+import express from "express"
+import CartManager from "../dao/models/cartManager.js"
+const cartRouter = express.Router()
+const cartManager = new CartManager()
 
-router.post('/', async(requests, response) => {
+
+cartRouter.get('/', async(requests, response) => {
+    let respuesta = await cartManager.getCarts()
+    response.send({status: "Success", payload: respuesta})
+})
+
+cartRouter.post('/', async(requests, response) => {
+    let producto = requests.body
+    let respuesta = await cartManager.addCart(producto)
+    response.send({status: "Success", payload: respuesta})
+})
+
+/*
+
+cartRouter.post('/', async(requests, response) => {
     let productos = requests.body
     let respuesta = await cartManager.addCart(productos)
     response.send(respuesta)         
 })
 
-router.post('/:cid/product/:pid', async(requests, response) => {
+cartRouter.post('/:cid/product/:pid', async(requests, response) => {
     let { cid , pid } = requests.params
     let carritos = await cartManager.getCarts()
     let carrito = carritos.find(carrito => carrito.id == cid)
@@ -31,12 +50,12 @@ router.post('/:cid/product/:pid', async(requests, response) => {
     response.send("Done")
 })
 
-router.get('/', async(requests, response) => {
+cartRouter.get('/', async(requests, response) => {
     let respuesta = await cartManager.getCarts()
     response.send(respuesta)
 })
 
-router.get('/:cid', async (requests, response) => {
+cartRouter.get('/:cid', async (requests, response) => {
     let carritos = await cartManager.getCarts()
     let { cid } = requests.params
     console.log(cid)
@@ -49,5 +68,5 @@ router.get('/:cid', async (requests, response) => {
     }
 
 })
-
-module.exports = router
+*/
+export default cartRouter

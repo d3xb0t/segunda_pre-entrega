@@ -22,6 +22,9 @@ app.use(express.static('public'))
 //const productRouter = require('./routes/productsRoutes')
 import productRouter from "./routes/productsRoutes.js"
 //const cartRouter = require('./routes/cartsRoutes')
+import cartRouter from "./routes/cartsRoutes.js"
+
+
 /*
 const homeRouter = require('./routes/homeRoutes')
 const realTimeProducts = require('./routes/realTimeProductsRoutes')
@@ -39,7 +42,7 @@ app.use((requests, response, next) => {
 //app.use('/realtimeproducts', realTimeProducts)
 //app.use('/', homeRouter)
 app.use('/api/products', productRouter)
-//app.use('/api/carts', cartRouter)
+app.use('/api/carts', cartRouter)
 
 app.listen(8080, () => {console.log("Listening in port 8080")})
 try{
