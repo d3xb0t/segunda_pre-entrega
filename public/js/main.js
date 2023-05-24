@@ -20,7 +20,7 @@ async function load(){
         let miTabla = '<table> <thead class="shadow"><tr><th scope="col">ID</th><th scope="col">TITLE</th><th scope="col">STOCK</th><th scope="col">PRICE</th><th scope="col">CATEGORY</th><th scope="col">STATUS</th></tr></thead>'
         for(let i= 0, { length }= data; i<length; i++){
             miTabla += "<tr>"
-            miTabla += '<th scope="row">'+data[i].id+'</th>'
+            miTabla += '<th scope="row">'+data[i]._id+'</th>'
             miTabla += "<td>"+data[i].title+"</td>"
             miTabla += "<td>"+data[i].stock+"</td>"
             miTabla += "<td>"+data[i].price+"</td>"

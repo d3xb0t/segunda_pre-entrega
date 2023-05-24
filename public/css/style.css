@@ -114,11 +114,11 @@ table {
   }
 
   thead th:nth-child(5) {
-    width: 20%;
+    width: 15%;
   }
 
   thead th:nth-child(6) {
-    width: 5%;
+    width: 10%;
   }
   
   th, td {
