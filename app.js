@@ -4,6 +4,7 @@ import express from "express"
 import mongoose from "mongoose"
 import __dirname from "./utils.js"
 //const { Server } = require('socket.io')
+import { Server } from 'socket.io'
 const app = express()
 //const handlebars = require('express-handlebars')
 import handlebars from 'express-handlebars'
@@ -52,13 +53,13 @@ app.use('/', homeRouter)
 app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)
 
-app.listen(8080, () => {console.log("Listening in port 8080")})
+//app.listen(8080, () => {console.log("Listening in port 8080")})
 try{
     mongoose.connect('mongodb://127.0.0.1:27017/ecommerce')
 } catch(error) {
         handleError((error) => console.log("Imposible conectar la aplicacion"))
 }
-/*
+
 const server = app.listen(8080, () => {console.log("Listen in port 8080")})
 const io = new Server(server)
 
@@ -68,4 +69,3 @@ io.on('connection', socket => {
         io.emit('log', data)
     })
 })
-*/

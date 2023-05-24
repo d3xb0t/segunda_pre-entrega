@@ -1,12 +1,12 @@
 const contenedor = document.querySelector('#contenedor')
-/*
+
 const socket = io()
 
 
 socket.on('log', data => {
     location.reload()
 })
-*/
+
 
 async function load(){
     contenedor.innerHTML = " "

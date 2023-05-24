@@ -1,13 +1,13 @@
-//const socket = io()
+const socket = io()
 const display = document.querySelector('#display')
-//const string = "string"
+const string = "string"
 
-/*
+
 socket.emit('message', string)
 socket.on('log', data => {
     console.log(data)
 })
-*/
+
 
 const getProducts = async () => {
     fetch('http://localhost:8080/api/products')
