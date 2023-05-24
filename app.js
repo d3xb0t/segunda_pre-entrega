@@ -64,9 +64,18 @@ try{
 const server = app.listen(8080, () => {console.log("Listen in port 8080")})
 const io = new Server(server)
 
+let messages = []
+
 io.on('connection', socket => {
     console.log('Connected')
+
     socket.on('message', data => {
         io.emit('log', data)
+    })
+
+    socket.on('messageChat', data => {
+        messages.push(data)
+        io.emit("messageLogs", messages)
+        console.log(messages)
     })
 })
