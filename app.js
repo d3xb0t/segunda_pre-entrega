@@ -56,9 +56,10 @@ app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)
 app.use('/chat', chatRouter)
 
+const uri = "mongodb+srv://d3xb0t:u6T9jHxrMeqqJSqX@cluster0.jvy54zx.mongodb.net/?retryWrites=true&w=majority"
 //app.listen(8080, () => {console.log("Listening in port 8080")})
 try{
-    mongoose.connect('mongodb://127.0.0.1:27017/ecommerce')
+    mongoose.connect("mongodb+srv://d3xb0t:u6T9jHxrMeqqJSqX@cluster0.jvy54zx.mongodb.net/?retryWrites=true&w=majority")
 } catch(error) {
         handleError((error) => console.log("Imposible conectar la aplicacion"))
 }
@@ -93,4 +94,6 @@ io.on('connection', socket => {
     })
 })
 
-
+/*
+u6T9jHxrMeqqJSqX
+*/
