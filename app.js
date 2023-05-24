@@ -35,6 +35,7 @@ app.use(cors())
 */
 
 import homeRouter from './routes/homeRoutes.js'
+import realTimeProductsRouter from "./routes/realTimeProductsRoutes.js"
 import cors from 'cors'
 app.use(cors())
 
@@ -46,7 +47,7 @@ app.use((requests, response, next) => {
     next()
 })
 
-//app.use('/realtimeproducts', realTimeProducts)
+app.use('/realtimeproducts', realTimeProductsRouter)
 app.use('/', homeRouter)
 app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)
