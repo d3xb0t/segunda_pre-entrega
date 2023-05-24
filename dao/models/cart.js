@@ -7,7 +7,7 @@ const subSchema = new mongoose.Schema({
     _id: false
 })
 const cartSchema = new mongoose.Schema({
-    cart: [subSchema]    
+    products: [subSchema]    
 })
 
 const cartModel = mongoose.model(cartCollection, cartSchema)

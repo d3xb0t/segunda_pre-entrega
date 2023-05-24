@@ -41,7 +41,41 @@ cartRouter.post('/', async(requests, response) => {
 
 cartRouter.post('/:cid/product/:pid', async(requests, response) => {
     let { cid , pid } = requests.params
-    response.send({cid, pid})
+    try{
+        let carrito = await cartModel.findOne({_id: cid})
+        let itemIndex = carrito.products.findIndex(p => p.id == pid)
+        if(itemIndex > -1){
+            let productItem = carrito.products[itemIndex]
+            productItem.quantity = productItem.quantity + 1
+            carrito.products[itemIndex] = productItem
+            //carrito = await carrito.save()
+            //response.status(201).send(carrito)
+        }else{
+            carrito.products.push({id: pid, quantity: 1})
+            //carrito = await carrito.save()
+        }
+        carrito = await carrito.save()
+        response.status(201).send(carrito)
+    }catch(error){
+        console.log("Imposible conectarse a la base de datos o id inexistente")
+        response.send({status: "Impossible task", payload: error})
+    }
+
+    /*
+    let objeto = await cartModel.findOne({_id: cid})
+    //console.log(objeto.cart)
+    let itemIndex = objeto.cart.findIndex(p => p.id == pid)
+    //console.log(itemIndex)
+    if(itemIndex > -1){
+        let productItem = objeto.cart[itemIndex]
+        console.log(productItem)
+        productItem.quantity = productItem.quantity + 1
+        console.log(productItem)
+        objeto.cart[itemIndex] = productItem
+    }
+    objeto = await objeto.save()
+    response.status(201).send(objeto)
+    */
 })
 
 /*
