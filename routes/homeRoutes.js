@@ -1,12 +1,14 @@
+/*
 const express = require('express')
 const router = express.Router()
 const products = require('../products.json')
+*/
+import express from "express"
+const homeRouter = express.Router()
 
-router.get('/', (requests, response) => {
+homeRouter.get('/', (requests, response) => {
     const style = 'style.css'
-    response.render('home', {style})
-    
+    response.render('home', {style})    
 })
 
-
-module.exports = router
+export default homeRouter
