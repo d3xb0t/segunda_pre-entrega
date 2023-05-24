@@ -1,3 +1,5 @@
+import chatModel from "./dao/models/chat.js"
+
 //const productos = require('./products.json')
 //const express = require('express')
 import express from "express"
@@ -66,6 +68,16 @@ const io = new Server(server)
 
 let messages = []
 
+async function sendToMongo(data){
+    let { user, message } = data
+    console.log(user, message)
+    let respuesta = await chatModel.create({
+        user,
+        message
+    })
+    return respuesta
+}
+
 io.on('connection', socket => {
     console.log('Connected')
 
@@ -75,7 +87,10 @@ io.on('connection', socket => {
 
     socket.on('messageChat', data => {
         messages.push(data)
+        let response = sendToMongo(data)
         io.emit("messageLogs", messages)
-        console.log(messages)
+        
     })
 })
+
+
