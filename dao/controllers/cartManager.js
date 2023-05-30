@@ -1,5 +1,5 @@
 import callback from "../../callbacks.js"
-import cartModel from "./cart.js"
+import cartModel from "../models/cart.js"
 
 class CartManager {
 

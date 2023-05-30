@@ -1,14 +1,7 @@
-/*
-const express = require('express')
-const router = express.Router()
-const md5 = require('md5')
-const fs = require('fs')
-const CartManager = require('../dao/fileSystem/cartManager')
-*/
-
 import express from "express"
-import CartManager from "../dao/models/cartManager.js"
+import CartManager from "../dao/controllers/cartManager.js"
 import cartModel from "../dao/models/cart.js"
+
 const cartRouter = express.Router()
 const cartManager = new CartManager()
 

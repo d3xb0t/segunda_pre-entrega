@@ -1,5 +1,5 @@
 import callback from "../../callbacks.js";
-import productModel from './product.js'
+import productModel from '../models/product.js'
 
 class ProductManager {
 

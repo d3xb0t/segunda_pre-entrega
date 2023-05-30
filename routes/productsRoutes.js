@@ -1,11 +1,7 @@
-//const callback = require('../callbacks')
 import callback from '../callbacks.js'
-import ProductManager from '../dao/models/productManager.js'
-//import productModel from '../dao/models/product.js'
-//const ProductManager = require('../dao/fileSystem/productManager.js')
-//const productManager = new ProductManager('./products.json')
-//const express = require('express')
+import ProductManager from '../dao/controllers/productManager.js'
 import express from "express"
+
 const productRouter = express.Router()
 const productManager = new ProductManager()
 

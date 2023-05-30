@@ -1,13 +1,6 @@
-/*
-const ProductManager = require('../dao/fileSystem/productManager')
-const productManager = new ProductManager()
-const products = require('../products.json')
-const express = require('express')
-const router = express.Router()
-*/
-
-import ProductManager from "../dao/models/productManager.js"
+import ProductManager from "../dao/controllers/productManager.js"
 import express from "express"
+
 const productManager = new ProductManager()
 const realTimeProductsRouter = express.Router()
 
