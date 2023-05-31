@@ -35,7 +35,7 @@ main{
     background-color: white;
     width: 340px;
     min-height: 200px;
-    margin: 50px auto;
+    margin: 25px auto;
     position: relative;
     border-radius: 3px;
 }
@@ -54,9 +54,9 @@ main{
 
 .display{
     background-color: white;
-    margin: 50px auto;
+    margin: 25px auto;
     width: 90%;
-    height: 100vh;
+    height: 91.5vh;
     overflow-y: scroll
 }
 
@@ -137,6 +137,7 @@ input{
 .field{
     border: solid 1px #ccc;
     padding: 13px;
+    margin: 2.5px;
 }
 
 .field:focus{

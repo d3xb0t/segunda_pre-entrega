@@ -15,14 +15,22 @@
             </div>
             <div class="color_green" id="top">
                 <form id="formAdd" action="http://localhost:8080/realtimeproducts" enctype="application/x-www-form-urlencoded" method="post">
-                    <input class="field" type="text" name="title" placeholder="Title">
-                    <input class="field" type="text" name="description" placeholder="Description">
-                    <input class="field" type="text" name="price" placeholder="Price">
-                    <input  class="field" type="text" name="thumbnail" placeholder="Thumbnail">
-                    <input  class="field" type="text" name="code" placeholder="Code">
-                    <input  class="field" type="text" name="stock" placeholder="Stock">
-                    <input  class="field" type="text" name="category" placeholder="Category">
-                    <input  class="field" type="text" name="status" placeholder="Status">
+                    <p>Title</p>
+                    <input class="field" type="text" name="title">
+                    <p>Description</p>
+                    <input class="field" type="text" name="description">
+                    <p>Price</p>
+                    <input class="field" type="text" name="price">
+                    <p>Thumbnail</p>
+                    <input  class="field" type="text" name="thumbnail">
+                    <p>Code</p>
+                    <input  class="field" type="text" name="code">
+                    <p>Stock</p>
+                    <input  class="field" type="text" name="stock">
+                    <p>Category</p>
+                    <input  class="field" type="text" name="category">
+                    <p>Status</p>
+                    <input  class="field" type="text" name="status">
                     <p><input class="btn btn-green" type="submit" value="Enviar Producto"></p>
                 </form>
             </div>
