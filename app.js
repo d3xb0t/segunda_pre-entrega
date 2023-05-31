@@ -8,6 +8,7 @@ import productRouter from "./routes/productsRoutes.js"
 import cartRouter from "./routes/cartsRoutes.js"
 import chatRouter from "./routes/chatsRoutes.js"
 import homeRouter from './routes/homeRoutes.js'
+import paginateRouter from './routes/paginateRouter.js'
 import realTimeProductsRouter from "./routes/realTimeProductsRoutes.js"
 import cors from 'cors'
 import path from "path"
@@ -31,6 +32,7 @@ app.use((requests, response, next) => {
 })
 app.use('/realtimeproducts', realTimeProductsRouter)
 app.use('/', homeRouter)
+app.use('/products', paginateRouter)
 app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)
 app.use('/chat', chatRouter)
