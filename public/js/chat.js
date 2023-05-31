@@ -2,6 +2,7 @@ const socket = io()
 
 let user
 let chatBox = document.querySelector('#chatBox')
+let chatUser = document.querySelector('#user')
 
 Swal.fire({
     title: 'Identificate',
@@ -13,6 +14,7 @@ Swal.fire({
     allowOutsideClick: false
 }).then(result => {
     user = result.value
+    chatUser.innerHTML = user
     console.log(user)
 })
 
@@ -32,7 +34,7 @@ socket.on('messageLogs', data => {
     let log = document.querySelector('#messageLogs')
     let messages = ""
     data.forEach(message => {
-        messages = messages+`${message.user} dice: ${message.message}</br>`
+        messages = messages+`${message.user} dice: ${message.message}\n`
     })
     log.innerHTML = messages
 })

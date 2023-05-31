@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: crimson;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: dimgrey;
+    font-size: 0.8em;
+
+    height: 100vh;
+}
+
+.chat{
+    background-color: crimson;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 40px;
+
+}
+
+.field{
+    border: solid 1px #ccc;
+    padding: 13px;
+    margin: 10px;
+}
+
+.field:focus{
+    border-color: #006465;
+}
+
+textarea{
+    width: 800px;
+    height: 300px;
+}
+
+input{
+    width: 800px;
+}
