@@ -57,6 +57,7 @@ main{
     margin: 50px auto;
     width: 90%;
     height: 100vh;
+    overflow-y: scroll
 }
 
 .color_green{

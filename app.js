@@ -36,7 +36,7 @@ app.use('/api/carts', cartRouter)
 app.use('/chat', chatRouter)
 
 try{
-    mongoose.connect('mongodb://127.0.0.1:27017/ecommerce')
+    mongoose.connect('mongodb://127.0.0.1:27017/wokeflix')
 } catch(error) {
         handleError((error) => console.log("Imposible conectar la aplicacion"))
 }
