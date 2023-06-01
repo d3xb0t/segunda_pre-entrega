@@ -52,6 +52,22 @@ cartRouter.post('/:cid/product/:pid', async(requests, response) => {
     }
 })
 
+
+cartRouter.delete('/:cid/product/:pid', async(requests, response) => {
+    let { cid , pid } = requests.params
+    try {
+        let carrito = await cartModel.findOne({_id: cid})
+        let itemIndex = carrito.products.findIndex(p => p.id == pid)
+        if(itemIndex > -1){
+            carrito.products.splice(itemIndex, 1)
+            carrito = await carrito.save()
+        }
+        response.status(201).send(carrito)
+    } catch (error) {
+        console.log("Imposible conectarse a la base de datos o id inexistente")
+        response.send({status: "Impossible task", payload: error})
+    }    
+})
 /*
 
     Además, agregar al router de carts los siguientes endpoints:
