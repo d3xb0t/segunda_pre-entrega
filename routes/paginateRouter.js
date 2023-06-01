@@ -7,13 +7,13 @@ class Query{
     limit = 10;
     page = 1;
     sort = {};
-    query = {};
+    category = {};
 
-    constructor(limit, page, sort, query){
+    constructor(limit, page, sort, category){
         this.limit = limit?limit : this.limit;
         this.page = page?page : this.page;
         this.sort = sort?{price: sort} : this.sort;
-        this.query = query?{category: query} : this.query;
+        this.category = category?{'category': category} : this.category;
     }
 }
 
@@ -23,10 +23,10 @@ const paginateRouter = express.Router()
 
 paginateRouter.get('/', async (requests, response) => {
     try {
-        let { limit, page, sort, query } = requests.query
-        let dataToMakeTheQuery = new Query(limit, page, sort, query)
+        let { limit, page, sort, category } = requests.query
+        let dataToMakeTheQuery = new Query(limit, page, sort, category)
         console.log(dataToMakeTheQuery)
-        let respuesta = await productModel.paginate(dataToMakeTheQuery.query,
+        let respuesta = await productModel.paginate(dataToMakeTheQuery.category,
                                                     {limit: dataToMakeTheQuery.limit,
                                                      page: dataToMakeTheQuery.page,
                                                      sort: dataToMakeTheQuery.sort })
