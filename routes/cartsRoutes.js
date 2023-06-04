@@ -34,6 +34,9 @@ cartRouter.post('/', async(requests, response) => {
 
 cartRouter.post('/:cid/product/:pid', async(requests, response) => {
     let { cid , pid } = requests.params
+    let respuesta = await cartManager.addProductInCart(cid, pid)
+    response.send({status: "Success", payload: respuesta})
+    /*
     try{
         let carrito = await cartModel.findOne({_id: cid})
         let itemIndex = carrito.products.findIndex(p => p.id == pid)
@@ -50,6 +53,7 @@ cartRouter.post('/:cid/product/:pid', async(requests, response) => {
         console.log("Imposible conectarse a la base de datos o id inexistente")
         response.send({status: "Impossible task", payload: error})
     }
+    */
 })
 
 cartRouter.put('/:cid/product/:pid', async(requests, response) => {
@@ -71,6 +75,19 @@ cartRouter.put('/:cid/product/:pid', async(requests, response) => {
         console.log("Imposible conectarse a la base de datos o id inexistente")
         response.send({status: "Impossible task", payload: error})
     }
+})
+
+//PUT api/carts/:cid deberá actualizar el carrito con un arreglo de productos con el formato especificado arriba.
+cartRouter.put('/:cid', async (requests, response) => {
+    let arrayProductos = requests.body
+    let { cid } = requests.params
+    console.log(cid)
+    for(let i= 0, { length } = arrayProductos; i < length; i++){
+        let pid = arrayProductos[i]._id
+        let respuesta = await cartManager.addProductInCart(cid, pid)
+    }
+    //let respuesta = await cartManager.addProductInCart(cid, pid)
+    response.send({status: "Success"}) 
 })
 
 cartRouter.delete('/:cid/product/:pid', async(requests, response) => {
@@ -110,8 +127,9 @@ cartRouter.delete('/:cid', async (requests, response) => {
     DELETE api/carts/:cid/products/:pid deberá eliminar del carrito el producto seleccionado. OK
 
     PUT api/carts/:cid deberá actualizar el carrito con un arreglo de productos con el formato especificado arriba.
-    PUT api/carts/:cid/products/:pid deberá poder actualizar SÓLO la cantidad de ejemplares del producto por cualquier cantidad pasada desde req.body
     
+    
+    PUT api/carts/:cid/products/:pid deberá poder actualizar SÓLO la cantidad de ejemplares del producto por cualquier cantidad pasada desde req.body OK
     DELETE api/carts/:cid deberá eliminar todos los productos del carrito OK
     Esta vez, para el modelo de Carts, en su propiedad products, el id de cada producto generado dentro del array tiene que hacer referencia al modelo de Products. Modificar la ruta /:cid para que al traer todos los productos, los traiga completos mediante un “populate”. De esta manera almacenamos sólo el Id, pero al solicitarlo podemos desglosar los productos asociados.
 
