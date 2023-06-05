@@ -8,8 +8,14 @@ class CartManager {
     }
 
     async getCarts() {
-        let resultado = await cartModel.find()
+        
+        let resultado = await cartModel.find().populate('products.id')
         return resultado
+        
+        /*
+        let cart = await cartModel.find({_id: '647e0075d5b6dfc9cd311b41'}).populate('products.id')
+        console.log(JSON.stringify(cart, null, '\t'))
+        */
       }
 
     async addCart(producto){

@@ -26,6 +26,7 @@
     "mongoose": "^7.2.2",
     "mongoose-paginate-v2": "^1.7.1",
     "nodemon": "^2.0.22",
+    "population": "^2.0.0",
     "socket.io": "^4.6.1"
   }
 }
