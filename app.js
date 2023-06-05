@@ -10,6 +10,7 @@ import chatRouter from "./routes/chatsRoutes.js"
 import homeRouter from './routes/homeRoutes.js'
 import paginateRouter from './routes/paginateRouter.js'
 import realTimeProductsRouter from "./routes/realTimeProductsRoutes.js"
+import catalogueRouter from "./routes/catalogueRouter.js"
 import cors from 'cors'
 import path from "path"
 
@@ -33,6 +34,9 @@ app.use((requests, response, next) => {
 app.use('/realtimeproducts', realTimeProductsRouter)
 app.use('/', homeRouter)
 app.use('/products', paginateRouter)
+
+app.use('/catalogue', catalogueRouter)
+
 app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)
 app.use('/chat', chatRouter)
@@ -73,3 +77,12 @@ io.on('connection', socket => {
     })
 })
 
+/*
+
+Crear una vista en el router de views ‘/products’ para visualizar todos los productos con su respectiva paginación. Cada producto mostrado puede resolverse de dos formas:
+Llevar a una nueva vista con el producto seleccionado con su descripción completa, detalles de precio, categoría, etc. Además de un botón para agregar al carrito.
+Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.
+
+Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito específico, donde se deberán listar SOLO los productos que pertenezcan a dicho carrito.
+
+*/

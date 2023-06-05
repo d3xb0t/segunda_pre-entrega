@@ -1,0 +1,35 @@
+const contenedor = document.querySelector('#contenedor')
+
+async function load(){
+    contenedor.innerHTML = " "
+    
+    await fetch('http://localhost:8080/catalogue', {
+        method: 'get',
+        headers: {"Content-type": "application/json;charset=UTF-8"}
+    })
+    .then(response =>  response.json())
+    .then(data => {
+        let miTabla = '<table> <thead class="shadow"><tr><th scope="col">TITLE</th><th scope="col">DESCRIPTION</th><th scope="col">STOCK</th><th scope="col">PRICE</th><th scope="col">CATEGORY</th><th scope="col">STATUS</th></tr></thead>'
+        for(let i= 0, { length }= data.payload; i<length; i++){
+            miTabla += "<tr>"
+            miTabla += '<th scope="row">'+data.payload[i].title+'</th>'
+            miTabla += "<td>"+data.payload[i].description+"</td>"
+            miTabla += "<td>"+data.payload[i].stock+"</td>"
+            miTabla += "<td>"+data.payload[i].price+"</td>"
+            miTabla += "<td>"+data.payload[i].category+"</td>"
+            miTabla += "<td>"+data.payload[i].status+"</td>"
+            miTabla += "</tr>"
+        }
+        miTabla += "</table>"
+        const tabla = document.createElement("div")
+        tabla.className = "tabla"
+        tabla.innerHTML = miTabla
+        contenedor.appendChild(tabla)
+
+        console.log(data.nextLink)
+    })
+    
+    .catch((error) => console.log(error))
+}
+
+load()
