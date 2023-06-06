@@ -17,7 +17,8 @@ cartRouter.get('/:cid', async (requests, response) => {
     let {cid} = requests.params
     try{
         let respuesta = await cartModel.findById({_id: cid})
-        response.send({status: "Success", payload: respuesta})
+        response.send(respuesta)
+        //response.send({status: "Success", payload: respuesta})
     } catch(error) {
         console.log("Imposible conectarse a la base de datos o id inexistente")
         response.send({status: "Impossible task", payload: error})

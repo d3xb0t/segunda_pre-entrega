@@ -11,6 +11,7 @@ import homeRouter from './routes/homeRoutes.js'
 import paginateRouter from './routes/paginateRouter.js'
 import realTimeProductsRouter from "./routes/realTimeProductsRoutes.js"
 import catalogueRouter from "./routes/catalogueRouter.js"
+import viewCartRouter from "./routes/viewCartRouter.js"
 import cors from 'cors'
 import path from "path"
 
@@ -40,6 +41,10 @@ app.use('/catalogue', catalogueRouter)
 app.use('/api/products', productRouter)
 app.use('/api/carts', cartRouter)
 app.use('/chat', chatRouter)
+
+//DEV
+app.use('/cart', viewCartRouter)
+//
 
 try{
     mongoose.connect('mongodb://127.0.0.1:27017/wokeflix')
