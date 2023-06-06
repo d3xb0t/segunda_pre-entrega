@@ -3,9 +3,10 @@ import cartModel from "../dao/models/cart.js"
 
 const viewCartRouter = express.Router()
 
-viewCartRouter.get('/', async(requests, response) => {
-    let cid = "647f5fb63b9abef1270a2453"
-    let resultado = await cartModel.findById({_id: cid}).populate('products.id')
+viewCartRouter.get('/:cid', async(requests, response) => {
+    let cid = requests.params.cid
+    console.log(cid)
+    let resultado = await cartModel.findOne({_id: cid}).populate('products.id')
 
     let array = []
 
